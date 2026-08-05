@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare Neuropsychiatry & Behavioral Health</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f4c81;
+            --primary-light: #e8f1f8;
+            --secondary: #2a9d8f;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --danger: #e63946;
+            --text-muted: #64748b;
+            --radius: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { color: var(--dark); background: #ffffff; line-height: 1.6; }
+
+        /* Emergency Crisis Banner */
+        .crisis-bar {
+            background: var(--danger);
+            color: white;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+        .crisis-bar a { color: white; text-decoration: underline; font-weight: 700; }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; transition: 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-primary {
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-primary:hover { background: #0c3b66; transform: translateY(-1px); }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 80px 8%;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%);
+            align-items: center;
+            gap: 40px;
+        }
+        .hero-text h1 { font-size: 2.8rem; line-height: 1.2; color: var(--primary); margin-bottom: 20px; }
+        .hero-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
+        .hero-badges { display: flex; gap: 15px; margin-top: 25px; }
+        .badge { background: white; padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0; }
+
+        /* Section Styling */
+        section { padding: 70px 8%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary); }
+        .section-title p { color: var(--text-muted); margin-top: 8px; }
+
+        /* Interactive Services Tabs */
+        .tab-buttons { display: flex; justify-content: center; gap: 12px; margin-bottom: 35px; flex-wrap: wrap; }
+        .tab-btn {
+            padding: 10px 20px;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: white; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: 0.3s;
+        }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.06); }
+        .service-icon { font-size: 2rem; color: var(--secondary); margin-bottom: 15px; }
+
+        /* Intake Screener Tool Box */
+        .screener-box {
+            background: var(--primary-light);
+            border-radius: var(--radius);
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid #cbd5e1;
+        }
+        .screener-step { display: none; }
+        .screener-step.active { display: block; }
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 10px 0;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .option-btn:hover { border-color: var(--primary); background: #f0f7ff; }
+
+        /* Modal Booking */
+        .modal {
+            display: none;
+            position: fixed;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center; align-items: center;
+            z-index: 2000;
+        }
+        .modal-content {
+            background: white;
+            padding: 35px;
+            border-radius: var(--radius);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Emergency Hotline Banner -->
+    <div class="crisis-bar">
+        <i class="fa-solid fa-triangle-exclamation"></i> In immediate mental distress? Call Tele-MANAS at <strong>14416</strong> or National Helpline <strong>988</strong>.
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Mind<span>Care</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Clinical Services</a></li>
+            <li><a href="#triage">Self Assessment</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="btn-primary" onclick="openBooking()">Book Consultation</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-text">
+            <h1>Evidence-Based Neuropsychiatry & Psychotherapy</h1>
+            <p>Comprehensive, compassionate care integrating biological psychiatry, brain stimulation, and evidence-backed psychotherapy for long-term recovery.</p>
+            <button class="btn-primary" style="padding: 14px 28px; font-size: 1rem;" onclick="openBooking()">Schedule Appointment</button>
+            <div class="hero-badges">
+                <span class="badge"><i class="fa-solid fa-user-doctor"></i> Specialist Care</span>
+                <span class="badge"><i class="fa-solid fa-shield-halved"></i> 100% Confidential</span>
+                <span class="badge"><i class="fa-solid fa-video"></i> Telehealth Available</span>
+            </div>
+        </div>
+        <div>
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Clinical Consult" style="width: 100%; border-radius: var(--radius); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);">
+        </div>
+    </header>
+
+    <!-- Services Section with Tabs -->
+    <section id="services">
+        <div class="section-title">
+            <h2>Specialized Clinical Services</h2>
+            <p>Tailored treatment protocols delivered by expert practitioners</p>
+        </div>
+
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="filterServices('all')">All Services</button>
+            <button class="tab-btn" onclick="filterServices('psychiatry')">Psychiatry</button>
+            <button class="tab-btn" onclick="filterServices('therapy')">Psychotherapy</button>
+            <button class="tab-btn" onclick="filterServices('neuro')">Brain Stimulation & Assessments</button>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card" data-cat="psychiatry">
+                <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+                <h3>Psychiatric Consultation</h3>
+                <p>Comprehensive evaluation, diagnosis, and evidence-based pharmacotherapy for mood, anxiety, and neurodevelopmental conditions.</p>
+            </div>
+            <div class="service-card" data-cat="therapy">
+                <div class="service-icon"><i class="fa-solid fa-comments"></i></div>
+                <h3>Cognitive Behavioral Therapy (CBT)</h3>
+                <p>Structured, goal-oriented therapy targeting negative thought patterns, anxiety disorders, OCD, and depression.</p>
+            </div>
+            <div class="service-card" data-cat="neuro">
+                <div class="service-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>Brain Stimulation & Neuromodulation</h3>
+                <p>Advanced non-invasive brain stimulation therapies (tDCS, rTMS) for treatment-resistant depression and cognitive enhancement.</p>
+            </div>
+            <div class="service-card" data-cat="therapy">
+                <div class="service-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <h3>Positive Mental Health & Resilience</h3>
+                <p>Preventative wellness, mindfulness integration, and stress optimization strategies for professionals and students.</p>
+            </div>
+            <div class="service-card" data-cat="neuro">
+                <div class="service-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                <h3>Neuropsychological Assessments</h3>
+                <p>Formal diagnostic batteries for ADHD, cognitive profiling, memory disorders, and personality evaluations.</p>
+            </div>
+            <div class="service-card" data-cat="psychiatry">
+                <div class="service-icon"><i class="fa-solid fa-people-roof"></i></div>
+                <h3>Liaison Psychiatry</h3>
+                <p>Collaborative care integrating mental health solutions with chronic physical illness and medical conditions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Patient Screening Widget -->
+    <section id="triage" style="background: #fafafa;">
+        <div class="section-title">
+            <h2>Interactive Care Guide</h2>
+            <p>Not sure where to begin? Answer 2 quick questions to find the right clinical pathway.</p>
+        </div>
+
+        <div class="screener-box">
+            <div id="step1" class="screener-step active">
+                <h3>1. What primary concern are you seeking support for?</h3>
+                <button class="option-btn" onclick="nextStep(2, 'Mood/Anxiety')">Mood fluctuations, severe anxiety, or sleep disturbances</button>
+                <button class="option-btn" onclick="nextStep(2, 'Focus/Cognitive')">Difficulty with focus, attention, memory, or ADHD</button>
+                <button class="option-btn" onclick="nextStep(2, 'Therapy')">Relationship stress, personal growth, or coping strategies</button>
+            </div>
+
+            <div id="step2" class="screener-step">
+                <h3>2. How would you prefer to receive care?</h3>
+                <button class="option-btn" onclick="showResult('In-Person Consultation')">In-Person at Clinic</button>
+                <button class="option-btn" onclick="showResult('Telehealth / Video Consult')">Online Video Consultation</button>
+            </div>
+
+            <div id="result" class="screener-step" style="text-align: center;">
+                <i class="fa-solid fa-circle-check" style="font-size: 3rem; color: var(--secondary); margin-bottom: 15px;"></i>
+                <h3>Recommended Pathway: <span id="recommendation-text" style="color: var(--primary);"></span></h3>
+                <p style="margin: 15px 0; color: var(--text-muted);">We recommend scheduling an initial comprehensive consultation.</p>
+                <button class="btn-primary" onclick="openBooking()">Proceed to Booking</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBooking()">&times;</span>
+            <h2 style="color: var(--primary); margin-bottom: 10px;">Book a Consultation</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Select your preferred consultation type below.</p>
+            
+            <form onsubmit="handleBooking(event)">
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 600;">Full Name</label>
+                    <input type="text" required style="width:100%; padding: 10px; border-radius:6px; border:1px solid #ccc;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 600;">Phone Number</label>
+                    <input type="tel" required style="width:100%; padding: 10px; border-radius:6px; border:1px solid #ccc;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom: 5px; font-weight: 600;">Consultation Mode</label>
+                    <select style="width:100%; padding: 10px; border-radius:6px; border:1px solid #ccc;">
+                        <option>In-Person Consultation</option>
+                        <option>Online Video Session</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Confirm Booking Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Category Filter
+        function filterServices(category) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.cat === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Triage Screener
+        let selectedConcern = '';
+        function nextStep(step, val) {
+            if(val) selectedConcern = val;
+            document.querySelectorAll('.screener-step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+        }
+
+        function showResult(mode) {
+            document.querySelectorAll('.screener-step').forEach(s => s.classList.remove('active'));
+            document.getElementById('result').classList.add('active');
+            document.getElementById('recommendation-text').innerText = `${selectedConcern} (${mode})`;
+        }
+
+        // Modal Controls
+        function openBooking() { document.getElementById('bookingModal').style.display = 'flex'; }
+        function closeBooking() { document.getElementById('bookingModal').style.display = 'none'; }
+        function handleBooking(e) {
+            e.preventDefault();
+            alert('Booking request received! Our clinic team will reach out shortly to confirm your time slot.');
+            closeBooking();
+        }
+    </script>
+</body>
+</html>
