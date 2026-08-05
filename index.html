@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Google Calendar Appointment Scheduling Styles & Script -->
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
     <style>
         :root {
             --primary: #0f4c81;
@@ -134,25 +139,6 @@
         }
         .option-btn:hover { border-color: var(--primary); background: #f0f7ff; }
 
-        /* Modal Booking */
-        .modal {
-            display: none;
-            position: fixed;
-            top:0; left:0; width:100%; height:100%;
-            background: rgba(0,0,0,0.6);
-            justify-content: center; align-items: center;
-            z-index: 2000;
-        }
-        .modal-content {
-            background: white;
-            padding: 35px;
-            border-radius: var(--radius);
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-        }
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero { grid-template-columns: 1fr; text-align: center; }
@@ -174,7 +160,6 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Clinical Services</a></li>
             <li><a href="#triage">Self Assessment</a></li>
-            <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="btn-primary" onclick="openBooking()">Book Consultation</button>
     </nav>
@@ -274,34 +259,6 @@
         </div>
     </section>
 
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeBooking()">&times;</span>
-            <h2 style="color: var(--primary); margin-bottom: 10px;">Book a Consultation</h2>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Select your preferred consultation type below.</p>
-            
-            <form onsubmit="handleBooking(event)">
-                <div style="margin-bottom: 15px;">
-                    <label style="display:block; margin-bottom: 5px; font-weight: 600;">Full Name</label>
-                    <input type="text" required style="width:100%; padding: 10px; border-radius:6px; border:1px solid #ccc;">
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <label style="display:block; margin-bottom: 5px; font-weight: 600;">Phone Number</label>
-                    <input type="tel" required style="width:100%; padding: 10px; border-radius:6px; border:1px solid #ccc;">
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <label style="display:block; margin-bottom: 5px; font-weight: 600;">Consultation Mode</label>
-                    <select style="width:100%; padding: 10px; border-radius:6px; border:1px solid #ccc;">
-                        <option>In-Person Consultation</option>
-                        <option>Online Video Session</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%;">Confirm Booking Request</button>
-            </form>
-        </div>
-    </div>
-
     <!-- JavaScript Logic -->
     <script>
         // Category Filter
@@ -333,14 +290,34 @@
             document.getElementById('recommendation-text').innerText = `${selectedConcern} (${mode})`;
         }
 
-        // Modal Controls
-        function openBooking() { document.getElementById('bookingModal').style.display = 'flex'; }
-        function closeBooking() { document.getElementById('bookingModal').style.display = 'none'; }
-        function handleBooking(e) {
-            e.preventDefault();
-            alert('Booking request received! Our clinic team will reach out shortly to confirm your time slot.');
-            closeBooking();
+        // Function to trigger Google Calendar popup when site buttons are clicked
+        function openBooking() {
+            if (window.calendar && window.calendar.schedulingButton) {
+                // Triggers Google Calendar overlay directly
+                const floatingBtn = document.querySelector('.calendar-scheduling-button');
+                if (floatingBtn) {
+                    floatingBtn.click();
+                } else {
+                    window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ3fcL2sgDfefwrovjgORvNUnbgbzTAs4MAyNwn31sgrDOHRuf7TDQT5eclTcl2M0WvONC3SjqWS?gv=true', '_blank');
+                }
+            } else {
+                window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ3fcL2sgDfefwrovjgORvNUnbgbzTAs4MAyNwn31sgrDOHRuf7TDQT5eclTcl2M0WvONC3SjqWS?gv=true', '_blank');
+            }
         }
+    </script>
+
+    <!-- Google Calendar Floating Booking Button Initialization -->
+    <script>
+        window.addEventListener('load', function() {
+            if (window.calendar && window.calendar.schedulingButton) {
+                calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3fcL2sgDfefwrovjgORvNUnbgbzTAs4MAyNwn31sgrDOHRuf7TDQT5eclTcl2M0WvONC3SjqWS?gv=true',
+                    color: '#0f4c81',
+                    label: 'Book Consultation',
+                    target: document.body,
+                });
+            }
+        });
     </script>
 </body>
 </html>
