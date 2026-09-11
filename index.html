@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Raja Abhilash | Neuropsychiatry & Behavioral Health</title>
+    <title>Dr. Raja Abhilash | Consultant Psychiatrist & Psychotherapist | AIIMS New Delhi</title>
     
     <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -81,29 +81,77 @@
         /* Hero */
         .hero {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.25fr 0.75fr;
             padding: 70px 8% 80px;
             background: radial-gradient(circle at 10% 20%, rgba(238, 246, 252, 0.9) 0%, #ffffff 90%);
             align-items: center;
             gap: 40px;
         }
-        .hero-text h1 { font-size: 2.8rem; line-height: 1.2; color: var(--dark); margin-bottom: 20px; font-weight: 800; }
-        .hero-text h1 span { color: var(--primary); }
-        .hero-text p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; }
+        .credentials-tag {
+            display: inline-block;
+            background: #ffffff;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            margin-bottom: 15px;
+        }
+        .hero-text h1 { font-size: 2.8rem; line-height: 1.2; color: var(--dark); margin-bottom: 12px; font-weight: 800; }
+        .hero-text h2 { font-size: 1.35rem; color: var(--primary); font-weight: 700; margin-bottom: 16px; }
+        .hero-text p { font-size: 1.08rem; color: var(--text-muted); margin-bottom: 25px; }
         .hero-badges { display: flex; gap: 12px; margin-top: 25px; flex-wrap: wrap; }
         .badge { background: white; padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; border: 1px solid #e2e8f0; }
 
         section { padding: 70px 8%; }
-        .section-title { text-align: center; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .section-title { text-align: center; margin-bottom: 50px; max-width: 750px; margin-left: auto; margin-right: auto; }
         .section-title h2 { font-size: 2.2rem; color: var(--dark); font-weight: 800; }
         .section-title p { color: var(--text-muted); margin-top: 8px; font-size: 1rem; }
 
-        /* Pricing Section (Mandatory for Razorpay Compliance) */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        /* Institute Reputation Banner */
+        .aiims-reputation-card {
+            background: linear-gradient(135deg, #0a3358 0%, #0f4c81 100%);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 50px;
+            box-shadow: var(--shadow-hover);
+        }
+        .aiims-reputation-card h3 { font-size: 1.6rem; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+        .aiims-reputation-card p { font-size: 1rem; color: #e2e8f0; line-height: 1.7; }
+
+        /* Ranked Grid */
+        .ranked-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .ranked-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 26px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.2s ease;
+        }
+        .ranked-card:hover { transform: translateY(-4px); }
+        .ranked-card h4 { font-size: 1.15rem; color: var(--dark); margin-bottom: 8px; }
+        .ranked-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Skills Grid */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .skill-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: var(--shadow-soft);
+        }
+        .skill-icon { font-size: 1.8rem; color: var(--accent); margin-bottom: 12px; }
+
+        /* Pricing Grid */
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 25px; }
         .pricing-card {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 35px 28px;
+            padding: 32px 24px;
             border: 1px solid #cbd5e1;
             box-shadow: var(--shadow-soft);
             display: flex;
@@ -115,7 +163,7 @@
         .pricing-tag {
             position: absolute;
             top: -12px;
-            right: 25px;
+            right: 20px;
             background: var(--primary);
             color: white;
             padding: 4px 12px;
@@ -123,35 +171,40 @@
             font-size: 0.78rem;
             font-weight: 700;
         }
-        .price-amount { font-size: 2.4rem; font-weight: 800; color: var(--dark); margin: 15px 0; }
-        .price-amount span { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
-        .pricing-card ul { list-style: none; margin: 20px 0 30px; }
-        .pricing-card ul li { margin-bottom: 12px; color: var(--dark); font-size: 0.92rem; display: flex; align-items: center; gap: 8px; }
+        .price-amount { font-size: 2.2rem; font-weight: 800; color: var(--dark); margin: 12px 0; }
+        .price-amount span { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+        .pricing-card ul { list-style: none; margin: 16px 0 24px; }
+        .pricing-card ul li { margin-bottom: 10px; color: var(--dark); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
         .pricing-card ul li i { color: var(--accent); }
 
-        /* Services Grid */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .service-card {
+        /* Process Flow */
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 35px;
+        }
+        .process-step {
             background: white;
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            border: 1px solid #e2e8f0;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--primary);
             box-shadow: var(--shadow-soft);
         }
-        .service-icon { font-size: 1.8rem; color: var(--accent); margin-bottom: 15px; }
+        .step-number { font-size: 0.85rem; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
 
-        /* Legal & Protocol Section (Razorpay Standard) */
+        /* Legal Block */
         .legal-block {
             background: #ffffff;
             border-radius: var(--radius-lg);
-            padding: 40px;
+            padding: 35px;
             border: 1px solid #e2e8f0;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             box-shadow: var(--shadow-soft);
         }
-        .legal-block h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
-        .legal-block p, .legal-block li { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 10px; }
-        .legal-block ul { margin-left: 20px; margin-bottom: 15px; }
+        .legal-block h3 { color: var(--primary); margin-bottom: 12px; font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
+        .legal-block p, .legal-block li { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 8px; }
+        .legal-block ul { margin-left: 20px; margin-bottom: 12px; }
 
         /* Footer */
         footer {
@@ -185,45 +238,190 @@
 </head>
 <body>
 
-    <!-- Mandatory Indian Emergency Crisis Hotline Banner -->
+    <!-- Emergency Crisis Banner -->
     <div class="crisis-bar">
-        <i class="fa-solid fa-triangle-exclamation"></i> Emergency Crisis Support: Tele-MANAS (Govt. of India) at <a href="tel:14416">14416</a> | Vandrevala Foundation: <a href="tel:+919999666555">+91 9999 666 555</a> (24x7).
+        <i class="fa-solid fa-triangle-exclamation"></i> Immediate Crisis Support: Tele-MANAS (Govt. of India) at <a href="tel:14416">14416</a> | Vandrevala Foundation: <a href="tel:+919999666555">+91 9999 666 555</a> (24x7).
     </div>
 
     <!-- Navigation -->
     <nav>
         <a href="#" class="logo">Dr. Raja <span>Abhilash</span></a>
         <ul class="nav-links">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#pricing">Consultation Fees</a></li>
-            <li><a href="#protocols">Legal Protocols</a></li>
+            <li><a href="#about">Credentials</a></li>
+            <li><a href="#concerns">Why People Seek Care</a></li>
+            <li><a href="#skills">Therapy Skills</a></li>
+            <li><a href="#pricing">Fees & Plans</a></li>
+            <li><a href="#protocols">Protocols</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="btn-primary" onclick="openBooking()">Book Consultation</button>
     </nav>
 
-    <!-- Hero -->
-    <header class="hero">
+    <!-- Hero Section with AIIMS Credentials -->
+    <header class="hero" id="about">
         <div class="hero-text">
-            <h1>Specialized <span>Neuropsychiatry</span> & Evidence-Based Mental Health</h1>
-            <p>Comprehensive psychiatric evaluation, rational pharmacotherapy, and evidence-backed psychological interventions delivered via secure, compliant teleconsultation.</p>
+            <span class="credentials-tag"><i class="fa-solid fa-award"></i> AIIMS New Delhi Alumnus</span>
+            <h1>Dr. Raja Abhilash</h1>
+            <h2>M.D. (Psychiatry), AIIMS, New Delhi<br>Consultant Psychiatrist & Consultant Psychotherapist</h2>
+            <p>Providing evidence-based neuropsychiatric diagnosis, precision pharmacotherapy, and individual & marital psychotherapy trained at India's premier apex medical institute.</p>
             <button class="btn-primary" onclick="openBooking()" style="padding: 14px 32px; font-size: 1rem;">Schedule Appointment</button>
             <div class="hero-badges">
-                <span class="badge"><i class="fa-solid fa-certificate"></i> NMC Telemedicine Compliant</span>
+                <span class="badge"><i class="fa-solid fa-building-columns"></i> AIIMS New Delhi Trained</span>
+                <span class="badge"><i class="fa-solid fa-certificate"></i> NMC Telemedicine Certified</span>
                 <span class="badge"><i class="fa-solid fa-shield-halved"></i> 100% Confidential</span>
-                <span class="badge"><i class="fa-solid fa-file-prescription"></i> Digital Rx via Registered MD</span>
             </div>
         </div>
         <div>
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=650&q=80" alt="Psychiatric Evaluation" style="width:100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-hover);">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=650&q=80" alt="Clinical Consult" style="width:100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-hover);">
         </div>
     </header>
 
-    <!-- Consultation Plans & Price List (Mandatory for Razorpay Approval) -->
+    <!-- Clinical Standing & AIIMS Reputation -->
+    <section style="padding-top: 20px;">
+        <div class="aiims-reputation-card">
+            <h3><i class="fa-solid fa-landmark-dome"></i> Institutional Legacy: AIIMS, New Delhi</h3>
+            <p>The Department of Psychiatry at the <strong>All India Institute of Medical Sciences (AIIMS), New Delhi</strong>, represents the gold standard of psychiatric education, clinical rigor, and behavioral health research in South Asia. Postgraduate training (M.D.) at AIIMS imparts comprehensive mastery over biological psychiatry, psychopharmacological balance, neuropsychological assessment, and formal, structured psychotherapeutic paradigms.</p>
+        </div>
+    </section>
+
+    <!-- Categorized Clinical Concerns Section -->
+    <section id="concerns" style="background: #f8fafc; padding: 70px 8%;">
+        <div class="section-title">
+            <h2>Why People Seek Care</h2>
+            <p>Most individuals reach out not because of a clinical label, but because a specific area of life—intimacy, relationships, or work—has become overwhelming.</p>
+        </div>
+
+        <!-- Tier 1: Primary Real-World Drivers -->
+        <div style="margin-bottom: 45px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <span style="background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Most Frequent</span>
+                <h3 style="color: var(--dark); font-size: 1.4rem;">1. Intimacy, Relationships & Habit Control</h3>
+            </div>
+            
+            <div class="ranked-grid">
+                <div class="ranked-card" style="border-top: 4px solid var(--accent);">
+                    <div style="font-size: 1.5rem; color: var(--accent); margin-bottom: 10px;"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h4>Sexual Wellness & Performance Anxiety</h4>
+                    <p>Erectile difficulties, premature ejaculation, low desire, intimacy avoidance, and the silent anxiety that strains private relationships.</p>
+                </div>
+
+                <div class="ranked-card" style="border-top: 4px solid var(--accent);">
+                    <div style="font-size: 1.5rem; color: var(--accent); margin-bottom: 10px;"><i class="fa-solid fa-handshake-angle"></i></div>
+                    <h4>Marital Discord & Communication Stalemate</h4>
+                    <p>Recurring arguments, emotional detachment, loss of mutual trust, infidelity fallout, and persistent distress in marriage or partnerships.</p>
+                </div>
+
+                <div class="ranked-card" style="border-top: 4px solid var(--accent);">
+                    <div style="font-size: 1.5rem; color: var(--accent); margin-bottom: 10px;"><i class="fa-solid fa-wine-glass-empty"></i></div>
+                    <h4>Addictive Patterns & Coping Dependencies</h4>
+                    <p>Alcohol reliance, compulsive smoking/vaping, cannabis overuse, screen/porn loops, and difficulty resetting control without relapse.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tier 2: Executive Overload & Workplace Strain -->
+        <div style="margin-bottom: 45px;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <span style="background: #475569; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Performance & Routine</span>
+                <h3 style="color: var(--dark); font-size: 1.4rem;">2. Work Pressure, ADHD & Burnout</h3>
+            </div>
+
+            <div class="ranked-grid">
+                <div class="ranked-card" style="border-top: 4px solid var(--primary);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: 10px;"><i class="fa-solid fa-briefcase"></i></div>
+                    <h4>Corporate Stress & Workplace Burnout</h4>
+                    <p>Chronic mental exhaustion, feeling like an impostor, dreading weekdays, cynicism, and feeling trapped in unsustainable work cultures.</p>
+                </div>
+
+                <div class="ranked-card" style="border-top: 4px solid var(--primary);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: 10px;"><i class="fa-solid fa-brain"></i></div>
+                    <h4>Adult ADHD & Executive Paralysis</h4>
+                    <p>Chronic procrastination despite knowing what to do, time-blindness, racing thoughts, restlessness, and difficulty starting everyday tasks.</p>
+                </div>
+
+                <div class="ranked-card" style="border-top: 4px solid var(--primary);">
+                    <div style="font-size: 1.5rem; color: var(--primary); margin-bottom: 10px;"><i class="fa-solid fa-battery-quarter"></i></div>
+                    <h4>Chronic Fatigue & Emotional Depletion</h4>
+                    <p>Waking up unrefreshed, physical irritability, brain fog, and functioning on pure willpower until routine tasks feel insurmountable.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tier 3: Affective & Psychological Conditions -->
+        <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <span style="background: #64748b; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Clinical Core</span>
+                <h3 style="color: var(--dark); font-size: 1.4rem;">3. Affective, Intrusive & Relational Patterns</h3>
+            </div>
+
+            <div class="ranked-grid">
+                <div class="ranked-card" style="border-top: 4px solid #0a3358;">
+                    <div style="font-size: 1.5rem; color: #0a3358; margin-bottom: 10px;"><i class="fa-solid fa-arrows-rotate"></i></div>
+                    <h4>Obsessive-Compulsive Patterns (OCD)</h4>
+                    <p>Unwanted repetitive thoughts, taboos, persistent doubt, checking rituals, and health anxiety that consume daily focus.</p>
+                </div>
+
+                <div class="ranked-card" style="border-top: 4px solid #0a3358;">
+                    <div style="font-size: 1.5rem; color: #0a3358; margin-bottom: 10px;"><i class="fa-solid fa-cloud-rain"></i></div>
+                    <h4>Depression & Emptiness</h4>
+                    <p>Persistent sadness, anhedonia (loss of joy in hobbies), social withdrawal, sleep disruption, and feeling disconnected from life.</p>
+                </div>
+
+                <div class="ranked-card" style="border-top: 4px solid #0a3358;">
+                    <div style="font-size: 1.5rem; color: #0a3358; margin-bottom: 10px;"><i class="fa-solid fa-fingerprint"></i></div>
+                    <h4>Long-Standing Personality Patterns</h4>
+                    <p>Intense fear of abandonment, severe mood swings in relationships, boundary difficulties, and deep-seated early emotional wounds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Skills in Psychotherapy -->
+    <section id="skills">
+        <div class="section-title">
+            <h2>Specialized Therapeutic Modalities</h2>
+            <p>Advanced psychotherapeutic frameworks integrated with clinical psychiatric expertise</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                <h3>Cognitive Behavioral Therapy (CBT)</h3>
+                <p>Systematic restructuring of maladaptive automated cognitive errors, behavioral activation for mood disorders, and anxiety habituation.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-heart-circle-nodes"></i></div>
+                <h3>Systemic Marital & Couples Therapy</h3>
+                <p>De-escalation of chronic relational disputes, attachment repair, rebuilding mutual vulnerability, and sexual communication alignment.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+                <h3>Exposure & Response Prevention (ERP)</h3>
+                <p>Gold-standard behavioral desensitization hierarchies for severe OCD, health anxieties, and phobic avoidance mechanisms.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-shield-virus"></i></div>
+                <h3>Relapse Prevention & Harm Reduction</h3>
+                <p>Motivational interviewing (MET) and cognitive strategies targeting cravings, triggers, and sustained sobriety maintenance.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-network-wired"></i></div>
+                <h3>Adult ADHD Executive Coaching</h3>
+                <p>Structured scaffolding targeting task initiation, emotional impulsivity, time-blindness, and executive dysfunction blocks.</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <h3>Schema & Personality Restructuring</h3>
+                <p>Addressing deep-seated, early-maladaptive core beliefs, boundary establishment, and interpersonal effectiveness.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Plans & Price Schedule (All 5 Tiers) -->
     <section id="pricing" style="background: #f8fafc;">
         <div class="section-title">
-            <h2>Consultation Fee Schedule</h2>
-            <p>Transparent fee structure for registered telepsychiatry and clinical evaluation</p>
+            <h2>Consultation & Psychotherapy Fee Schedule</h2>
+            <p>Clear, transparent pricing compliant with Razorpay merchant requirements</p>
         </div>
 
         <div class="pricing-grid">
@@ -231,10 +429,10 @@
             <div class="pricing-card">
                 <div>
                     <h3>Initial Care Guidance</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">Preliminary triage and clinical pathway guidance</p>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 5px;">Preliminary triage & navigation</p>
                     <div class="price-amount">₹500 <span>/ consult</span></div>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> Preliminary symptom screening</li>
+                        <li><i class="fa-solid fa-check"></i> Basic symptom screening</li>
                         <li><i class="fa-solid fa-check"></i> Care pathway guidance</li>
                         <li><i class="fa-solid fa-check"></i> Telehealth video session</li>
                     </ul>
@@ -245,68 +443,104 @@
             <!-- 1000 Plan -->
             <div class="pricing-card">
                 <div>
-                    <h3>Focused Follow-up Review</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">Follow-up evaluation & therapy check-in</p>
+                    <h3>Focused Follow-up</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 5px;">Review & pharmacotherapy</p>
                     <div class="price-amount">₹1,000 <span>/ 30 Mins</span></div>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> 30-minute dedicated consultation</li>
-                        <li><i class="fa-solid fa-check"></i> Medication response & tolerability review</li>
-                        <li><i class="fa-solid fa-check"></i> Digital prescription (compliant Schedule list)</li>
-                        <li><i class="fa-solid fa-check"></i> Focused therapeutic review</li>
+                        <li><i class="fa-solid fa-check"></i> 30-minute review session</li>
+                        <li><i class="fa-solid fa-check"></i> Medication tolerability & titrations</li>
+                        <li><i class="fa-solid fa-check"></i> Compliant digital prescription</li>
                     </ul>
                 </div>
-                <button class="btn-primary" style="width: 100%;" onclick="openBooking()">Book 30-Min Session</button>
+                <button class="btn-primary" style="width: 100%;" onclick="openBooking()">Book 30-Min Review</button>
             </div>
 
             <!-- 2000 Plan -->
-            <div class="pricing-card featured">
-                <span class="pricing-tag">Comprehensive</span>
+            <div class="pricing-card">
                 <div>
-                    <h3>Complete Psychiatric Evaluation</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">In-depth first-time diagnostic consultation</p>
+                    <h3>Comprehensive Psychiatric Evaluation</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 5px;">First-time detailed consult</p>
                     <div class="price-amount">₹2,000 <span>/ 60 Mins</span></div>
                     <ul>
-                        <li><i class="fa-solid fa-check"></i> 60-minute in-depth clinical consult</li>
-                        <li><i class="fa-solid fa-check"></i> Full personal, medical & psychiatric history</li>
+                        <li><i class="fa-solid fa-check"></i> Full 60-minute in-depth evaluation</li>
+                        <li><i class="fa-solid fa-check"></i> Complete medical & psychiatric history</li>
                         <li><i class="fa-solid fa-check"></i> Formal diagnostic formulation</li>
-                        <li><i class="fa-solid fa-check"></i> Evidence-based biological & therapeutic plan</li>
+                        <li><i class="fa-solid fa-check"></i> Integrated treatment road-map</li>
                     </ul>
                 </div>
                 <button class="btn-primary" style="width: 100%;" onclick="openBooking()">Book Full Evaluation</button>
             </div>
+
+            <!-- 3000 Plan (Individual Therapy) -->
+            <div class="pricing-card featured">
+                <span class="pricing-tag">Therapy</span>
+                <div>
+                    <h3>Individual Psychotherapy</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 5px;">Dedicated one-on-one session</p>
+                    <div class="price-amount">₹3,000 <span>/ 50 Mins</span></div>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> 50 minutes dedicated clinical therapy</li>
+                        <li><i class="fa-solid fa-check"></i> CBT / ERP / Schema-based techniques</li>
+                        <li><i class="fa-solid fa-check"></i> Between-session homework & drills</li>
+                        <li><i class="fa-solid fa-check"></i> Coping mechanism formulation</li>
+                    </ul>
+                </div>
+                <button class="btn-primary" style="width: 100%;" onclick="openBooking()">Book Individual Therapy</button>
+            </div>
+
+            <!-- 5000 Plan (Marital Therapy) -->
+            <div class="pricing-card featured">
+                <span class="pricing-tag">Couples</span>
+                <div>
+                    <h3>Marital & Couples Therapy</h3>
+                    <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 5px;">Joint partnership counseling</p>
+                    <div class="price-amount">₹5,000 <span>/ 75 Mins</span></div>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> 75-minute extended joint session</li>
+                        <li><i class="fa-solid fa-check"></i> Systemic communication analysis</li>
+                        <li><i class="fa-solid fa-check"></i> Conflict de-escalation protocols</li>
+                        <li><i class="fa-solid fa-check"></i> Intimacy & boundary alignment</li>
+                    </ul>
+                </div>
+                <button class="btn-primary" style="width: 100%;" onclick="openBooking()">Book Marital Therapy</button>
+            </div>
+        </div>
+
+        <!-- Therapy Process Description -->
+        <div style="margin-top: 50px;">
+            <h3 style="color: var(--primary); text-align: center; font-size: 1.4rem;">The Structured Psychotherapy Process</h3>
+            <p style="text-align: center; color: var(--text-muted); max-width: 650px; margin: 8px auto 0;">Psychotherapy is not an unstructured conversation; it is an active, goal-oriented partnership.</p>
+            
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="step-number">STEP 01</div>
+                    <h4>Diagnostic Formulation</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 5px;">Mapping behavioral patterns, triggers, core belief origins, and symptom timelines.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">STEP 02</div>
+                    <h4>Collaborative Goal Setting</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 5px;">Agreeing on quantifiable targets: emotional regulation, conflict mitigation, or task initiation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">STEP 03</div>
+                    <h4>Active Skill Building</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 5px;">Implementing CBT drills, communication resets, and behavioral experiments between sessions.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">STEP 04</div>
+                    <h4>Maintenance & Autonomy</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 5px;">Tapering sessions to ensure self-sustaining coping tools without therapeutic dependence.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section id="services">
-        <div class="section-title">
-            <h2>Clinical Focus Areas</h2>
-            <p>Evidence-based neuropsychiatry and psychological interventions</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
-                <h3>Mood & Anxiety Disorders</h3>
-                <p>Diagnostic formulation and pharmacotherapy for clinical depression, bipolar spectrum disorders, panic disorder, OCD, and generalized anxiety.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-                <h3>Adult ADHD & Executive Function</h3>
-                <p>Standardized diagnostic screening and management protocols for adult attention deficit, procrastination cycles, and working memory profiling.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-comments"></i></div>
-                <h3>Psychotherapy & Behavior Therapy</h3>
-                <p>Cognitive Behavioral Therapy (CBT) and resilience strategies for burnout, interpersonal stress, and emotional regulation.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Standard Psychiatric Legal Protocols in India (Razorpay & NMC Verification) -->
-    <section id="protocols" style="background: #f8fafc;">
+    <!-- Standard Legal Protocols in India (Razorpay Mandatory) -->
+    <section id="protocols">
         <div class="section-title">
             <h2>Statutory Policies & Legal Protocols</h2>
-            <p>Practicing under the NMC Telemedicine Guidelines (2020) & Mental Healthcare Act (2017)</p>
+            <p>Operating under the NMC Telemedicine Guidelines (2020) & Mental Healthcare Act (2017)</p>
         </div>
 
         <!-- 1. Telemedicine & Prescription Policy -->
@@ -349,7 +583,8 @@
         <div class="footer-grid">
             <div>
                 <h4 style="color: white; font-size: 1.3rem;">Dr. Raja Abhilash</h4>
-                <p style="color: #94a3b8; margin-top: 6px;">Registered Psychiatrist & Telemedicine Practitioner</p>
+                <p style="color: #38bdf8; font-weight: 600;">M.D. (Psychiatry), AIIMS, New Delhi</p>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 4px;">Consultant Psychiatrist & Consultant Psychotherapist</p>
                 <p style="color: #94a3b8; font-size: 0.88rem; margin-top: 12px;">Committed to ethical, evidence-based neuropsychiatric interventions and compassionate behavioral health support across India.</p>
                 <p style="color: #38bdf8; font-size: 0.85rem; margin-top: 15px;"><i class="fa-solid fa-lock"></i> Secure 256-bit Encrypted Payments via Razorpay</p>
             </div>
@@ -362,10 +597,11 @@
             </div>
             <div>
                 <h4>Quick Navigation</h4>
-                <p><a href="#pricing">Consultation Fees</a></p>
-                <p><a href="#services">Clinical Services</a></p>
-                <p><a href="#protocols">Telemedicine Protocols</a></p>
-                <p><a href="#protocols">Privacy & Refund Policy</a></p>
+                <p><a href="#about">Credentials</a></p>
+                <p><a href="#concerns">Clinical Concerns</a></p>
+                <p><a href="#skills">Therapy Skills</a></p>
+                <p><a href="#pricing">Fees & Plans</a></p>
+                <p><a href="#protocols">Protocols & Refund Policy</a></p>
             </div>
         </div>
         <div class="footer-legal-bar">
@@ -376,7 +612,6 @@
 
     <!-- Google Calendar Floating Booking Button Initialization -->
     <script>
-        // Trigger Google Calendar popup when booking buttons are clicked
         function openBooking() {
             const floatingBtn = document.querySelector('.calendar-scheduling-button');
             if (floatingBtn) {
